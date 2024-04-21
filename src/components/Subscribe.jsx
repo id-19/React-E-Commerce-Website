@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Container, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
@@ -18,7 +19,7 @@ export default function Subscribe() {
               color="var(--darkBgColor)"
               fontSize="46px"
               fontWeight="900"
-              lineHeight="60px"
+              <Flex justify="center" align="center" bg="var(--primary)" color="var(--light)" px="40px" borderRadius="4px" _hover={{ cursor: "pointer" }} onClick={() => { MixpanelTrackerInstance.trackEvent("Subscribe Clicked", { Location: "Subscribe Section", date: new Date().toISOString(), }); }} >
             >
               Subscribe for updates
             </Text>

@@ -1,6 +1,8 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React from "react";
 import { Box, Container, Flex, Grid, Text } from "@chakra-ui/react";
 import { GrHomeRounded } from "react-icons/gr";
+<Link to={ROUTES.HOME} onClick={() => MixpanelTrackerInstance.trackEvent('Home Link Clicked', {page: 'FAQ'})}>
 import { BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../utils/routes";
@@ -12,6 +14,7 @@ export default function FAQ() {
       <Box bg="var(--lightBgColor)" py="10px">
         <Container maxW="1140px">
           <Flex gap="10px" color="var(--darkTextColor2)" align="center">
+            <AccordionComp onToggle={() => MixpanelTrackerInstance.trackEvent('Accordion Toggled', {section: 'FAQ'})} />
             <Link to={ROUTES.HOME}>
               <GrHomeRounded />
             </Link>
@@ -20,6 +23,7 @@ export default function FAQ() {
           </Flex>
         </Container>
       </Box>
+      <Subscribe onSubmit={() => MixpanelTrackerInstance.trackEvent('Subscribe Initiated', {location: 'FAQ Page'})} />
       <Container maxW="1140px">
         <Grid
           templateColumns={{

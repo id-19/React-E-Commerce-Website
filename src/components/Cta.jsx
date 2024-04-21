@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Container, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import img from "../assets/images/icons/cta.png";
@@ -12,8 +13,10 @@ export default function Cta() {
       pb={{ base: "80px", md: "40px", xl: "40px" }}
     >
       <Container maxW="1140px">
+        <Link onClick={() => MixpanelTrackerInstance.trackEvent('App Store Clicked', {'source': 'CTA'});}>
         <Flex
           justify="space-between"
+          <Link onClick={() => MixpanelTrackerInstance.trackEvent('Google Play Clicked', {'source': 'CTA'});}>
           align={{ base: "center", md: "start", xl: "start" }}
           gap="80px"
           flexDirection={{ base: "column", md: "row", xl: "row" }}

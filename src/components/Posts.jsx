@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { GoClock } from "react-icons/go";
@@ -5,6 +6,7 @@ import img1 from "../assets/images/blogs/blog5.jpg";
 import img2 from "../assets/images/blogs/blog6.jpg";
 import img3 from "../assets/images/blogs/blog7.jpg";
 export default function Posts() {
+  <Text as="h4" fontSize="24px" lineHeight="32px" fontWeight="700" color="var(--darkBgColor)" onClick={() => MixpanelTrackerInstance.trackEvent('Featured Posts Header Clicked')}> Featured Posts </Text>
   return (
     <>
       <Stack w="full">
@@ -13,6 +15,7 @@ export default function Posts() {
           fontSize="24px"
           lineHeight="32px"
           fontWeight="700"
+          <Text fontWeight="700" color="var(--darkBgColor)" _hover={{ color: "var(--primary)", transition: "0.6s" }} onClick={() => MixpanelTrackerInstance.trackEvent('Post Title Clicked', {title: '14 Items From End-of-Spring Sales Are Sure to Spark Joy', date: 'July 5, 2020'})}> 14 Items From End-of-Spring Sales Are Sure to Spark Joy </Text>
           color="var(--darkBgColor)"
         >
           Featured Posts
@@ -24,6 +27,7 @@ export default function Posts() {
           <Stack>
             <Flex gap="6px" color="var(--lightTextColor3)" align="center">
               <GoClock />
+              <Text fontWeight="700" color="var(--darkBgColor)" _hover={{ color: "var(--primary)", transition: "0.6s" }} onClick={() => MixpanelTrackerInstance.trackEvent('Post Title Clicked', {title: 'Best Fashion Instagrams of the Week', date: 'April 9, 2020'})}> Best Fashion Instagrams of the Week </Text>
               <Text>July 5, 2020</Text>
             </Flex>
             <Text
@@ -35,6 +39,7 @@ export default function Posts() {
             </Text>
           </Stack>
         </Flex>
+      <Text fontWeight="700" color="var(--darkBgColor)" _hover={{ color: "var(--primary)\
       </Stack>
       <Stack>
         <Flex align="center">

@@ -1,3 +1,5 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+MixpanelTrackerInstance.trackEvent('Page View', { page: 'Stores' });
 import React from "react";
 import { Box, Container, Flex, Grid, Text } from "@chakra-ui/react";
 import { GrHomeRounded } from "react-icons/gr";
@@ -22,6 +24,7 @@ export default function Stores() {
       address: "20 W 29th Street New York, NY 10001",
     },
     {
+      <Link to={ROUTES.HOME} onClick={() => MixpanelTrackerInstance.trackEvent('Navigate', { from: 'Stores', to: 'Home' })}>
       id: 2,
       imgUrl: img2,
       title: "Delaware, USA",
@@ -36,7 +39,7 @@ export default function Stores() {
       title: "New Jersey, USA",
       phone: "(702) 555-0122",
       email: "newjersey@createx.com",
-      hours: "Daily from 9 am to 8 pm",
+      {storesData.map((storeItem, i) => (<StoreCard key={i} storeItem={storeItem} onClick={() => MixpanelTrackerInstance.trackEvent('Store Selected', { storeId: storeItem.id, storeTitle: storeItem.title })} /> ))}
       address: "2464 Royal Ln. Mesa, New Jersey 45463",
     },
     {

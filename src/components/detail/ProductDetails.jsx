@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Image, Text, Flex, Container, Grid, Stack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -6,17 +7,20 @@ import star from "../../assets/images/icons/star.png";
 import visaIcon from "../../assets/images/icons/visa.png";
 import paypalIcon from "../../assets/images/icons/paypal.png";
 import masterIcon from "../../assets/images/icons/master.png";
+MixpanelTrackerInstance.trackEvent('decrement_quantity', { productID: productDetail?.id, quantity: quantity - 1 });
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import {
   BiLogoFacebook,
   BiLogoTwitter,
   BiLogoPinterestAlt,
+MixpanelTrackerInstance.trackEvent('increment_quantity', { productID: productDetail?.id, quantity: quantity + 1 });
 } from "react-icons/bi";
 import { addToCart } from "../../redux/cartSlice";
 export default function ProductDetails({ productDetail }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
 
+  MixpanelTrackerInstance.trackEvent('add_to_cart', { productID: productDetail?.id, title: productDetail?.title, price: productDetail?.price, quantity: quantity });
   const decrement = () => {
     if (quantity > 0) setQuantity(quantity - 1);
   };
@@ -61,6 +65,7 @@ export default function ProductDetails({ productDetail }) {
           justify="center"
         >
           <Image src={productDetail?.image} w="350px" h="350px" />
+        MixpanelTrackerInstance.trackEvent('decrement_clicked', { currentQuantity: quantity });
         </Flex>
         <Stack gap="10px">
           <Flex justify="space-between" pb="10px">
@@ -73,6 +78,7 @@ export default function ProductDetails({ productDetail }) {
               </Text>
               <Flex
                 w="50px"
+                MixpanelTrackerInstance.trackEvent('increment_clicked', { currentQuantity: quantity });
                 h="20px"
                 p="14px"
                 bg="#ff4242"
@@ -83,6 +89,7 @@ export default function ProductDetails({ productDetail }) {
               >
                 50%
               </Flex>
+            MixpanelTrackerInstance.trackEvent('add_to_cart_clicked', { productID: productDetail?.id, quantity: quantity });
             </Flex>
             <Stack>
               <Flex gap="4px">
