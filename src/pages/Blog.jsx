@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Container, Flex, Grid, Stack, Text } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
@@ -35,7 +36,7 @@ export default function Blog() {
       content:
         "Mauris tincidunt sollicitudin tristique odio eget volutpat. Fringilla viverra amet, mi interdum blandit. Tellus sed morbi massa quis sed. Faucibus tincidunt magna enim ultricies fringilla at rhoncus, hac...",
     },
-    {
+    <BlogItem onClick={() => { MixpanelTrackerInstance.trackEvent("Blog Clicked", { BlogTitle: blog.title, Category: blog.category, Date: blog.date, Comments: blog.comments, Content: blog.content, Image: blog.imgUrl, }); }} key={blog.id} blog={blog} />
       id: 3,
       imgUrl: img3,
       category: "Lifestyle",

@@ -1,10 +1,13 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React, { useState } from "react";
 import Banner from "../components/home/Banner";
 import Brends from "../components/home/Brends";
 import { Box, Container, Flex } from "@chakra-ui/react";
 import Category from "../components/home/Category";
 import Sorting from "../components/home/Sorting";
+MixpanelTrackerInstance.trackEvent('sort_change', { sort });
 import Products from "../components/home/Products";
+MixpanelTrackerInstance.trackEvent('category_change', { category });
 import Subscribe from "../components/Subscribe";
 import Services from "../components/Services";
 import Social from "../components/Social";

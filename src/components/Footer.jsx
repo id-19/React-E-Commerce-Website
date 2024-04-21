@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import {
   Box,
   Container,
@@ -6,21 +7,30 @@ import {
   Image,
   Stack,
   Text,
+<Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Delivery & Returns Clicked')}>Delivery & returns</Link>
 } from "@chakra-ui/react";
 import React from "react";
+<Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('FAQ Clicked')}>FAQ</Link>
 import { Link } from "react-router-dom";
 import {
+  <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Track Order Clicked')}>Track order</Link>
   BiLogoFacebook,
   BiLogoYoutube,
+  <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Contacts Clicked')}>Contacts</Link>
   BiLogoPinterestAlt,
+<Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Blog Clicked')}>Blog</Link>
 } from "react-icons/bi";
 import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import appStore from "../assets/images/icons/appStore.png";
 import googlePlay from "../assets/images/icons/googlePlay.png";
+<Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('New Arrivals Clicked')}>New arrivals</Link>
 import heartIcon from "../assets/images/icons/heartIcon.png";
+<Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Trending Now Clicked')}>Trending now</Link>
 export default function Footer() {
+  <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Sales Clicked')}>Sales</Link>
   return (
     <Box bg="var(--darkBgColor)">
+      <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Brands Clicked')}>Brands</Link>
       <Container maxW="1140px">
         <Grid
           templateColumns={{
@@ -32,20 +42,25 @@ export default function Footer() {
           gap={{ base: "20px", md: "30px", lg: "0" }}
         >
           <Stack gap="6px" color="var(--lightTextColor2)" fontWeight="500">
+            <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Facebook Clicked')}><BiLogoFacebook /></Link>
             <Text as="h5" color="var(--light)">
               HELP
             </Text>
+            <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Instagram Clicked')}><AiOutlineInstagram /></Link>
             <Text>
               <Link to="#">Delivery & returns</Link>
             </Text>
+            <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Twitter Clicked')}><AiOutlineTwitter /></Link>
             <Text>
               <Link to="#">FAQ</Link>
             </Text>
             <Text>
+              <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Youtube Clicked')}><BiLogoYoutube /></Link>
               <Link to="#">Track order</Link>
             </Text>
             <Text>
               <Link to="#">Contacts</Link>
+            <Link to="#" onClick={() => MixpanelTrackerInstance.trackEvent('Pinterest Clicked')}><BiLogoPinterestAlt /></Link>
             </Text>
             <Text>
               <Link to="#">Blog</Link>

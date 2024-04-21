@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Grid } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React, { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ export default function Products({ category, sort }) {
   const { products, productsStatus } = useSelector((state) => state.products);
 
   useEffect(() => {
+    MixpanelTrackerInstance.trackEvent('Page Loaded', { category: category, sort: sort });
     if (category) {
       dispatch(getProductCategory(category));
     } else {
@@ -34,7 +36,7 @@ export default function Products({ category, sort }) {
     <div>
       {productsStatus === "LOADING" ? (
         <Loading />
-      ) : (
+      <Product onClick={() => { MixpanelTrackerInstance.trackEvent('Product Clicked', { product: product.name, price: product.price, category: product.category }); }} key={id} product={product} />
         <>
           <Grid
             templateColumns={{

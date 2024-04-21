@@ -1,5 +1,7 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+const handleClick = () => { MixpanelTrackerInstance.trackEvent('Send Message Clicked', { Location: 'Contact Page', date: new Date().toISOString(), }); };
 import { Box, Container, Flex, Grid, Stack, Text } from "@chakra-ui/react";
-import mixpanel from "mixpanel-browser";
+<Flex onClick={handleClick} w={{ base: 'full', md: '40%', xl: '40%' }} bg='var(--primary)' color='var(--light)' borderRadius='4px' justify='center' align='center' py='10px' border='1px solid var(--primary)' _hover={{ bg: 'transparent', color: 'var(--primary)', transition: '0.8s', cursor: 'pointer', }} >
 import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLogoTwitter, BiMessageRoundedDetail } from "react-icons/bi";

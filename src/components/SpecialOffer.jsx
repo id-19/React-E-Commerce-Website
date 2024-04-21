@@ -1,4 +1,5 @@
-import { Flex, Link, Text } from "@chakra-ui/react";
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+<Flex bg="var(--primary)" py="10px" justify="center" align="center" color="var(--light)" gap="10px" onClick={() => MixpanelTrackerInstance.trackEvent('Special Offer Clicked', {location: 'Special Offer Component'})} >
 import React from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 export default function SpecialOffer() {

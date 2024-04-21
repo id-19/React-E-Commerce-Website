@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { removeFromCart } from "../../redux/cartSlice";
@@ -22,6 +23,7 @@ export default function CartItem({ cart }) {
         minW="310px"
         textAlign={{ base: "center", md: "start" }}
       >
+        MixpanelTrackerInstance.trackEvent('CartItem Delete Clicked', {productId: cart?.id, productName: cart?.title, productPrice: cart?.price, productQuantity: cart?.quantity});
         {cart?.title}
       </Text>
       <Text mx="14px" minW="70px">

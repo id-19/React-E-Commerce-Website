@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Container, Flex, Image } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React, { useEffect, useState } from "react";
@@ -43,6 +44,7 @@ export default function Header() {
                 display={{ base: "block", md: "none", xl: "none" }}
                 onClick={() => navigate("cart")}
                 _hover={{ cursor: "pointer" }}
+              MixpanelTrackerInstance.trackEvent('Navigation - Cart', { Location: 'Header', itemCount: itemCount });
               >
                 <AiOutlineShoppingCart size={30} />
                 <Flex
@@ -53,6 +55,7 @@ export default function Header() {
                   height="20px"
                   borderRadius="50%"
                   backgroundColor="var(--primary)"
+                  MixpanelTrackerInstance.trackEvent('Navigation - Hamburger Menu', { clickState: click ? 'Closed' : 'Opened' });
                   color="#fff"
                   justifyContent="center"
                   alignItems="center"
@@ -68,7 +71,7 @@ export default function Header() {
                   cursor: "pointer",
                 }}
                 zIndex="55"
-                position="absolute"
+                <Link onClick={() => { MixpanelTrackerInstance.trackEvent('FAQ Clicked', { Location: 'Header', date: new Date().toISOString(), }); }} to={ROUTES.FAQ} > FAQ </Link>
                 right="10px"
                 top="60px"
               >
