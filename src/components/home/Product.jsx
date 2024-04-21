@@ -1,5 +1,7 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
+MixpanelTrackerInstance.trackEvent('Product View', {productId: product.id, productName: product.title});
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 

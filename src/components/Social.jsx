@@ -1,3 +1,5 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+MixpanelTrackerInstance.trackEvent('Social Page Viewed');
 import { Container, Flex, Image, Stack, Text, Box } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -12,6 +14,7 @@ export default function Social() {
         justify={{ base: "center", md: "space-between", xl: "space-between" }}
         align={{ base: "center", md: "center", xl: "start" }}
         w="full"
+        onClick={() => MixpanelTrackerInstance.trackEvent('Follow Instagram Clicked')}
         py="80px"
         flexDirection={{ base: "column", md: "column", xl: "row" }}
         gap={{ base: "40px", md: "60px", xl: "0" }}
@@ -22,18 +25,21 @@ export default function Social() {
           </Text>
           <Text
             fontSize="46px"
+            onClick={() => MixpanelTrackerInstance.trackEvent('Image 1 Viewed')}
             lineHeight="60px"
             color="var(--darkBgColor)"
             fontWeight="900"
           >
             @createx_store
           </Text>
+          onClick={() => MixpanelTrackerInstance.trackEvent('Image 2 Viewed')}
           <Flex
             justify="center"
             align="center"
             gap="4px"
             p="14px"
             color="var(--primary)"
+            onClick={() => MixpanelTrackerInstance.trackEvent('Image 3 Viewed')}
             border="1px solid var(--primary)"
             borderRadius="4px"
             mt="40px"

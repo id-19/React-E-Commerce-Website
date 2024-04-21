@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { BiLogoFacebook, BiLogoInstagram } from "react-icons/bi";
@@ -12,18 +13,21 @@ export default function Tags() {
       mt="40px"
       borderBottom="1px solid var(--lightBorderColor2)"
       flexDirection={{ base: "column", md: "row", xl: "row" }}
+      onClick={() => MixpanelTrackerInstance.trackEvent('tag_clicked', { tag: '#trends' })}
       gap={{ base: "40px", md: "0", xl: "0" }}
     >
       <Flex
         gap="20px"
         align={{ base: "start", md: "center", xl: "center" }}
         w="full"
+        onClick={() => MixpanelTrackerInstance.trackEvent('tag_clicked', { tag: '#inspiration' })}
         flexDirection={{ base: "column", md: "row", xl: "row" }}
       >
         <Text>Tags:</Text>
         <Flex wrap="wrap" gap="10px">
           <Text
             as="span"
+            onClick={() => MixpanelTrackerInstance.trackEvent('tag_clicked', { tag: '#designers' })}
             fontWeight="700"
             color="var(--lightTextColor3)"
             border="1px solid var(--lightBorderColor2)"
@@ -36,24 +40,28 @@ export default function Tags() {
               transition: "0.8s",
             }}
           >
+            onClick={() => MixpanelTrackerInstance.trackEvent('social_share_clicked', { platform: 'Facebook' })}
             #trends
           </Text>
           <Text
             as="span"
             fontWeight="700"
             color="var(--lightTextColor3)"
+            onClick={() => MixpanelTrackerInstance.trackEvent('social_share_clicked', { platform: 'Instagram' })}
             border="1px solid var(--lightBorderColor2)"
             borderRadius="4px"
             px="20px"
             py="8px"
             _hover={{
               bg: "var(--primary)",
+              onClick={() => MixpanelTrackerInstance.trackEvent('social_share_clicked', { platform: 'Twitter' })}
               color: "var(--light)",
               transition: "0.8s",
             }}
           >
             #inspiration
           </Text>
+          onClick={() => MixpanelTrackerInstance.trackEvent('social_share_clicked', { platform: 'LinkedIn' })}
           <Text
             as="span"
             fontWeight="700"

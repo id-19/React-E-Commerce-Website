@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React from "react";
 import icon1 from "../assets/images/icons/delivery.png";
 import icon2 from "../assets/images/icons/call.png";
@@ -12,7 +13,7 @@ export default function Services() {
       title: "Fast Worldwide Shipping",
       text: "Get free shipping over $250",
     },
-    {
+    <Stack key={id} gap="20px" py="70px" px="20px" boxShadow=" rgba(149, 157, 165, 0.2) 0px 8px 24px" _hover={{ transform: "translateY(-10px)", transition: "0.6s", cursor: "pointer", }} onClick={() => MixpanelTrackerInstance.trackEvent('Service Selected', {serviceId: item.id, serviceName: item.title})}>
       id: 2,
       imgUrl: icon2,
       title: "Fast Worldwide Shipping",

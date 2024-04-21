@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Checkbox, Flex, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -21,6 +22,7 @@ export default function Login({ onSignUpClick, onCloseLoginModal }) {
             Email
           </Text>
           <input
+            onClick={() => { MixpanelTrackerInstance.trackEvent('Sign In Button Clicked'); onSignUpClick(); onCloseLoginModal(); }}
             type="text"
             className="loginInput"
             placeholder="Your working email"
@@ -29,21 +31,25 @@ export default function Login({ onSignUpClick, onCloseLoginModal }) {
 
           <Text as="label" color="var(--darkTextColor2)" fontSize="14px">
             Password
+          onClick={() => MixpanelTrackerInstance.trackEvent('Facebook Sign In Clicked')}
           </Text>
           <input
             type="password"
             className="loginInput"
             placeholder="Password"
+          onClick={() => MixpanelTrackerInstance.trackEvent('Google Sign In Clicked')}
           />
 
           <Flex align="center" justify="space-between" gap="10px" mt={4}>
             <Checkbox color="var(--darkTextColor2)">Keep me signed in</Checkbox>
             <Text fontSize="14px" color="var(--primary)">
+              onClick={() => MixpanelTrackerInstance.trackEvent('Twitter Sign In Clicked')}
               Forgot Password?
             </Text>
           </Flex>
           <Flex
             bg="var(--primary)"
+            onClick={() => MixpanelTrackerInstance.trackEvent('LinkedIn Sign In Clicked')}
             color="var(--light)"
             w="full"
             borderRadius="4px"

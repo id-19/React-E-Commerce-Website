@@ -1,5 +1,7 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+const handleClick = () => { MixpanelTrackerInstance.trackEvent('Blog Item Clicked', {blogId: blog.id, blogTitle: blog.title}); };
 import { Image, Stack, Text, Box, Flex } from "@chakra-ui/react";
-import React from "react";
+<Link to={`/blog/${blog.id}`} onClick={handleClick}>
 import { AiOutlineComment } from "react-icons/ai";
 import { Link } from "react-router-dom";
 export default function BlogItem({ blog }) {

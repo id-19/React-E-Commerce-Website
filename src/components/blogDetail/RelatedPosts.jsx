@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Container, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
@@ -6,6 +7,7 @@ export default function RelatedPosts({ blogsData }) {
   const { id } = useParams();
   const relatedPosts = blogsData.filter((post) => post.id !== Number(id));
   return (
+    MixpanelTrackerInstance.trackEvent('Related Post Viewed', { postId: post.id, postTitle: post.title });
     <Box
       bg="var(--lightBgColor)"
       mt="40px"

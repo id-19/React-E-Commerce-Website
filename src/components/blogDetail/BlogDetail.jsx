@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import img1 from "../../assets/images/blogs/blog1.png";
@@ -22,6 +23,7 @@ export default function BlogDetail() {
       category: "Fashion",
       date: "August 24, 2020",
       comments: "No comments",
+      MixpanelTrackerInstance.trackEvent('Blog Detail View', {title: blog.title, category: blog.category, date: blog.date});
       title: "Bag Trends for Summer 2023",
       content:
         "Vulputate vitae pellentesque scelerisque luctus consequat mattis pellentesque dui odio. Interdum aenean sit viverra amet,malesuada ornare sed gravida rhoncus, congue. Purus auctor nullam diam quis est hendrerit ac euismod...",

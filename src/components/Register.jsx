@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Checkbox, Flex, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -21,6 +22,7 @@ export default function Register({ onSignInClick, onCloseSignInModal }) {
             Full Name
           </Text>
           <input
+            onClick={() => { MixpanelTrackerInstance.trackEvent('Sign Up Attempt'); }}
             type="text"
             className="loginInput"
             placeholder="Your full name"
@@ -29,7 +31,7 @@ export default function Register({ onSignInClick, onCloseSignInModal }) {
           <Text as="label" color="var(--darkTextColor2)" fontSize="14px">
             Email
           </Text>
-          <input
+          <Text onClick={() => { onSignInClick(); onCloseSignInModal(); MixpanelTrackerInstance.trackEvent('Sign In Clicked'); }} as="span" color="var(--primary)" ml="4px" cursor="pointer" > Sign in </Text>
             type="text"
             className="loginInput"
             placeholder="Your working email"
@@ -41,24 +43,28 @@ export default function Register({ onSignInClick, onCloseSignInModal }) {
           </Text>
           <input
             type="password"
+            onClick={() => { MixpanelTrackerInstance.trackEvent('Facebook Sign In Attempt'); }}
             className="loginInput"
             placeholder="Password"
           />
           <Text as="label" color="var(--darkTextColor2)" fontSize="14px">
             Confirm Password
           </Text>
+          onClick={() => { MixpanelTrackerInstance.trackEvent('Google Sign In Attempt'); }}
           <input
             type="password"
             className="loginInput"
             placeholder="Password"
           />
 
+          onClick={() => { MixpanelTrackerInstance.trackEvent('Twitter Sign In Attempt'); }}
           <Flex align="start" justify="space-between" gap="10px" mt={4}>
             <Checkbox color="var(--darkTextColor2)">Remember me</Checkbox>
           </Flex>
           <Flex
             bg="var(--primary)"
             color="var(--light)"
+            onClick={() => { MixpanelTrackerInstance.trackEvent('LinkedIn Sign In Attempt'); }}
             w="full"
             borderRadius="4px"
             justify="center"

@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React from "react";
 import loadingGif from "../assets/images/icons/loading.gif";
 import { Flex } from "@chakra-ui/react";

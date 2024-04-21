@@ -1,3 +1,5 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+const handleClick = (id) => { MixpanelTrackerInstance.trackEvent('Brand Clicked', { brandId: id }); };
 import React from "react";
 import Slider from "react-slick";
 import { Box, Image, Flex, Container } from "@chakra-ui/react";
@@ -32,7 +34,7 @@ export default function Brends() {
       },
       {
         breakpoint: 600,
-        settings: {
+        <Flex key={item.id} w="full" h="full" align="center" justify="center" onClick={() => handleClick(item.id)}>
           slidesToShow: 3,
           slidesToScroll: 3,
           initialSlide: 2,

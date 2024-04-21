@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import {
   Box,
   Container,
@@ -6,13 +7,13 @@ import {
   Modal,
   ModalBody,
   ModalCloseButton,
-  ModalContent,
+  onClick={() => { MixpanelTrackerInstance.trackEvent('Contact Us Clicked', { Location: 'Topbar', date: new Date().toISOString(), }); }}
   ModalHeader,
   ModalOverlay,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import mixpanel from "mixpanel-browser";
+onClick={() => { onLoginOpen(); MixpanelTrackerInstance.trackEvent('Login Button Clicked', { Location: 'Topbar', date: new Date().toISOString(), }); }}
 import React from "react";
 import profileIcon from "../../assets/images/icons/profile.png";
 import Login from "../Login";
@@ -27,7 +28,7 @@ export default function Topbar() {
     isOpen: isRegisterOpen,
     onOpen: onRegisterOpen,
     onClose: onRegisterClose,
-  } = useDisclosure();
+  onClick={() => { onRegisterOpen(); MixpanelTrackerInstance.trackEvent('Register Button Clicked', { Location: 'Topbar', date: new Date().toISOString(), }); }}
   return (
     <Box bg="var(--darkBgColor)">
       <Container maxW="1140px">

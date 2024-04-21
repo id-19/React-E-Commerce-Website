@@ -1,9 +1,11 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React from "react";
 import {
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'Do I need to register to place an order?' })}
   Box,
 } from "@chakra-ui/react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
@@ -20,6 +22,7 @@ export default function AccordionComp() {
                   flex="1"
                   textAlign="left"
                   fontSize="20px"
+                  onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'What is the estimated delivery time?' })}
                   lineHeight="30px"
                   fontWeight="700"
                   color="var(--darkBgColor)"
@@ -36,6 +39,7 @@ export default function AccordionComp() {
             <AccordionPanel pb={4}>
               Adipiscing nunc arcu enim elit mattis eu placerat proin. Imperdiet
               elementum faucibus dignissim purus. Fusce parturient diam magna
+              onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'How can I pay for my order?' })}
               ullamcorper morbi semper massa ac facilisis.
             </AccordionPanel>
           </>
@@ -52,6 +56,7 @@ export default function AccordionComp() {
                   textAlign="left"
                   fontSize="20px"
                   lineHeight="30px"
+                  onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'Can I get a refund if the price has changed since I ordered it?' })}
                   fontWeight="700"
                   color="var(--darkBgColor)"
                 >
@@ -68,6 +73,7 @@ export default function AccordionComp() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'Do you refund delivery charges if I return something?' })}
               nisi ut aliquip ex ea commodo consequat.
             </AccordionPanel>
           </>
@@ -84,6 +90,7 @@ export default function AccordionComp() {
                   textAlign="left"
                   fontSize="20px"
                   lineHeight="30px"
+                  onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'What documents will be provided with the order?' })}
                   fontWeight="700"
                   color="var(--darkBgColor)"
                 >
@@ -100,6 +107,7 @@ export default function AccordionComp() {
               Adipiscing nunc arcu enim elit mattis eu placerat proin. Imperdiet
               elementum faucibus dignissim purus. Fusce parturient diam magna
               ullamcorper morbi semper massa ac facilisis.
+            onClick={() => MixpanelTrackerInstance.trackEvent('Accordion Toggle', { question: 'Can I return the order to the courier if anything does not suit me?' })}
             </AccordionPanel>
           </>
         )}
