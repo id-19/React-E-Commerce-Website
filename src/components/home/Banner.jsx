@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
@@ -21,6 +22,7 @@ export default function Banner() {
           w="full"
           h="full"
         >
+          onClick={() => { MixpanelTrackerInstance.trackEvent('Shop Now Clicked', { section: 'Banner', label: 'Shop now' }); }}
           <Stack h="full" justify="center">
             <Text
               fontSize="18px"
@@ -29,7 +31,7 @@ export default function Banner() {
               color="var(--darkBgColor)"
               textTransform="uppercase"
               fontFamily="Lato"
-            >
+            onClick={() => { MixpanelTrackerInstance.trackEvent('Shop Sale Clicked', { Product: 'Menswear 2023', section: 'Banner', label: 'Shop sale' }); }}
               New collection
             </Text>
             <Text

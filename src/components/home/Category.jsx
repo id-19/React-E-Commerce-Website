@@ -1,3 +1,4 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../redux/categorySlice";
@@ -16,6 +17,7 @@ export default function Category({ setCategory }) {
       <Text fontSize="22px" fontWeight="bold" px="10px">
         CATEGORIES
       </Text>
+      MixpanelTrackerInstance.trackEvent('Category Selected', {category: category});
       {categories.map((category, i) => {
         return (
           <Box

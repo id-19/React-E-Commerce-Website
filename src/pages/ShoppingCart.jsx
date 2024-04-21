@@ -1,3 +1,7 @@
+import { MixpanelTrackerInstance } from "./mixpanel-utils.js";
+MixpanelTrackerInstance.trackEvent('Page Viewed', {page: 'Shopping Cart'});
+const handleCompleteOrderClick = () => { MixpanelTrackerInstance.trackEvent('Order Completed', {totalAmount: totalAmmount, itemCount: itemCount}); };
+const handleApplyPromoClick = () => { MixpanelTrackerInstance.trackEvent('Promo Code Applied'); };
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +36,7 @@ export default function ShoppingCart() {
       )}
 
       {carts?.length ? (
-        <Grid
+        <Flex justify="center" align="center" bg="var(--primary)" color="var(--light)" px="40px" borderRadius="4px" _hover={{ cursor: "pointer" }} onClick={handleApplyPromoClick}>
           templateColumns={{
             base: "repeat(1, 1fr)",
             md: "repeat(1, 1fr)",
@@ -55,7 +59,7 @@ export default function ShoppingCart() {
               <Flex>
                 <input
                   type="text"
-                  className="applyInput"
+                  <Flex w="full" bg="var(--primary)" color="var(--light)" align="center" justify="center" py="10px" _hover={{ cursor: "pointer" }} onClick={handleCompleteOrderClick}>
                   placeholder="Enter promo code"
                 />
                 <Flex
